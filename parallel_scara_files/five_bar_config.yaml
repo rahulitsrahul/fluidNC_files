@@ -1,0 +1,60 @@
+name: Rahul_parallel_scara
+board: esp_32
+
+kinematics:
+  five_bar:
+    L0: 50.0
+    L1: 100.0
+    L2: 100.0
+    kinematic_segment_len_mm: 1.0
+
+stepping:
+  engine: RMT
+  idle_ms: 255
+  pulse_us: 4
+  dir_delay_us: 1
+  disable_delay_us: 0
+
+axes:
+  y:
+    steps_per_mm: 17.777778
+    max_rate_mm_per_min: 8000000.0
+    acceleration_mm_per_sec2: 20000.0
+    max_travel_mm: 300.0
+    homing:
+      cycle: 2
+      positive_direction: true
+      mpos_mm: 90.0
+      feed_mm_per_min: 250.0
+      seek_mm_per_min: 200.0
+    motor0:
+      limit_neg_pin: gpio.17:pu
+      limit_pos_pin: NO_PIN
+      limit_all_pin: NO_PIN
+      hard_limits: true
+      pulloff_mm: 1.000
+      stepstick:
+        step_pin: gpio.12
+        direction_pin: gpio.14:low
+        disable_pin: gpio.13
+  x:
+    steps_per_mm: 17.777778
+    max_rate_mm_per_min: 8000000.0
+    acceleration_mm_per_sec2: 20000.0
+    max_travel_mm: 300.0
+    homing:
+      cycle: 2
+      positive_direction: true
+      mpos_mm: 90.0
+      feed_mm_per_min: 250.0
+      seek_mm_per_min: 200.0
+    motor0:
+      limit_neg_pin: gpio.16:pu
+      limit_pos_pin: NO_PIN
+      limit_all_pin: NO_PIN
+      hard_limits: true
+      pulloff_mm: 1.000
+      stepstick:
+        step_pin: gpio.27
+        direction_pin: gpio.26:low
+        disable_pin: gpio.25
